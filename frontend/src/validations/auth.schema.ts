@@ -6,10 +6,7 @@ export const phoneSchema = yup.object({
         .required("Phone number is required")
         .test("valid-phone", "Enter valid phone number", (value) => {
             if (!value) return false;
-
             const digits = value.replace(/\D/g, "");
-
-            // Minimum 8, max 15 (international standard)
             return digits.length >= 8 && digits.length <= 15;
         }),
 });

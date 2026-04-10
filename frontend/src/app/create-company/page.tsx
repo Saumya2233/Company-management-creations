@@ -99,7 +99,7 @@ export default function CreateCompanyPage() {
     type="button"
     variant="outline"
     className="flex-1"
-    onClick={() => router.push("/companies")}
+    onClick={() => router.push("/company")}
   >
     Cancel
   </Button>

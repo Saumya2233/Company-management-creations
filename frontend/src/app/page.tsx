@@ -11,6 +11,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { sendOtp } from "@/services/auth.service";
 import { phoneSchema } from "@/validations/auth.schema";
+import { parsePhoneNumber } from "react-phone-number-input";
+
 
 type LoginFormValues = {
   phone: string;
@@ -42,16 +44,16 @@ export default function Home() {
     },
   });
 
-  const onSubmit = (data: LoginFormValues) => {
-    const digits = (data.phone || "").replace(/\D/g, "");
-    const phoneNumber = digits.slice(2);
+const onSubmit = (data: LoginFormValues) => {
+  const parsed = parsePhoneNumber(data.phone || "");
 
-    sendOtpMutation.mutate({
-      country_code: "+91",
-      phone_number: phoneNumber,
-    });
-  };
+  if (!parsed) return;
 
+  sendOtpMutation.mutate({
+    country_code: `+${parsed.countryCallingCode}`,
+    phone_number: parsed.nationalNumber,
+  });
+};
   return (
     <main className="min-h-screen bg-slate-50">
       <div className="mx-auto flex min-h-screen max-w-6xl items-center justify-center px-4 py-10">
