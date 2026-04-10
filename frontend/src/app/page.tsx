@@ -107,26 +107,12 @@ export default function Home() {
                           <PhoneInput
                             international
                             defaultCountry="IN"
-                            countryCallingCodeEditable={false}
-                            maxLength={15}
+                            countryCallingCodeEditable={true} // change this
                             placeholder="Enter phone number"
                             value={field.value}
-                            
-                            onChange={(value) => {
-                              const inputValue = value || "";
-                              let digits = inputValue.replace(/\D/g, "");
-
-                              // Force India code
-                              if (!digits.startsWith("91")) {
-                                digits = "91" + digits.replace(/^91/, "");
-                              }
-
-                              // limit 91 + 10 digits
-                              digits = digits.slice(0, 12);
-
-                              field.onChange(digits ? `+${digits}` : "");
-                            }}
+                            onChange={(value) => field.onChange(value || "")}
                             className="phone-input"
+                            maxLength={17}
                           />
                         </div>
                       )}

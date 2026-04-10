@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Company Portal",
+  title: "Company Portal Softovate assignment",
   description: "Manage companies with OTP authentication",
 };
 
