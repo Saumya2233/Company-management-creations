@@ -1,0 +1,42 @@
+# dependencies
+node_modules/
+
+# env files
+.env
+.env.local
+.env.development
+.env.production
+
+# next build
+.next/
+
+# build files
+dist/
+build/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# misc
+.DS_Store
+# env files
+.env
+backend/.env
+backend/backend-app/.env
+frontend/.env
+
+
+# dependencies
+node_modules/
+
+# next build
+.next/
+
+# build
+dist/
+build/
+
+# logs
+npm-debug.log*
